@@ -1,0 +1,17 @@
+div.voting {
+  float: left;
+}
+
+div.vote-button {
+  margin-left: 0;
+  display: block;
+}
+
+div.vote-count-wrapper {
+  display: block;
+
+  .vote-count {
+    height: 30px;
+    line-height: 30px;
+  }
+}
