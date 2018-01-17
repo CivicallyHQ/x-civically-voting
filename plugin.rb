@@ -4,6 +4,7 @@
 # authors: Angus McLeod
 # url: https://github.com/civicallyhq/x-civically-voting
 
+register_asset 'stylesheets/common/voting-extension.scss'
 register_asset 'stylesheets/mobile/voting-extension.scss', :mobile
 
 after_initialize do
