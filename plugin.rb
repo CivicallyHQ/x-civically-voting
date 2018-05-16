@@ -45,7 +45,7 @@ after_initialize do
   class ::Topic
     def can_vote?
       SiteSetting.voting_enabled &&
-      (Category.can_vote?(category_id) || subtype === 'voting') &&
+      (Category.can_vote?(category_id) || subtype === 'petition') &&
       category.topic_id != id
     end
   end
