@@ -1,0 +1,6 @@
+{{#if context.topic.can_vote}}
+  <span class="middot inline sub"></span>
+  <div class='inline sub'>
+    {{i18n 'voting.votes' count=context.topic.vote_count}}
+  </div>
+{{/if}}
