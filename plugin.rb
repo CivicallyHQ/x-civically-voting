@@ -201,6 +201,23 @@ after_initialize do
 
         render json: obj
       end
+
+      protected
+
+      def update_vote_count(topic)
+        topic.custom_fields["vote_count"] = UserCustomField.where(value: topic.id.to_s, name: 'votes').count
+        topic.save
+      end
+
+      def who_voted(topic)
+        return nil unless SiteSetting.voting_show_who_voted
+
+        users = User.where("id in (
+          SELECT user_id FROM user_custom_fields WHERE name IN ('votes', 'votes_archive') AND value = ?
+        )", params[:topic_id].to_i.to_s)
+
+        ActiveModel::ArraySerializer.new(users, scope: guardian, each_serializer: BasicUserSerializer)
+      end
     end
   end
 end
