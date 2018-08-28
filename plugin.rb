@@ -131,7 +131,7 @@ after_initialize do
   end
 
   if defined?(DiscourseVoting) == 'constant' && DiscourseVoting.class == Module
-    DiscourseVoting::VotesController.class_eval do
+    class DiscourseVoting::VotesController
       def add
         topic = Topic.find_by(id: params["topic_id"])
 
